@@ -1,5 +1,5 @@
-# LearnCore
-To Learn .Net Core
+# ToDoApi
+我用官網上的實作來一步步學習 .net Core 的 Web API
 
 我依這個網址給的教材，一步步消化和進行實作︰
 
