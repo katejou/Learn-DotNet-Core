@@ -1,0 +1,39 @@
+來源︰
+https://learn.microsoft.com/zh-tw/aspnet/core/tutorials/min-web-api?view=aspnetcore-7.0&tabs=visual-studio-code
+
+步驟︰
+0. 前置作業
+
+CMD指令︰----
+新增︰dotnet new web -o TodoApi
+前往︰cd TodoApi
+進入︰code -r ../TodoApi
+
+步驟︰
+1. 查看 Program.cs (Program_ori.cs)
+2. dotnet dev-certs https --trust
+3. 按 Ctrl+F5 執行應用程式。 瀏覽器視窗隨即開啟? 
+    不，我要在左手邊的Debug工具按它，它才跑得動?
+    (直接按F5就好…)
+4. 新增套件
+
+CMD指令︰----
+dotnet add package Microsoft.EntityFrameworkCore.InMemory
+dotnet add package Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore
+
+5. 新增物件類別︰Todo
+6. 新增資料庫連接類別︰TodoDb
+7. 修改Program.cs(按模版，詳見檔案Program_beforeGroupMap.cs。)
+8. 跑起來，用Postman去測︰(看圖)
+    新增Post
+    查看Get
+    修改Put
+    刪除Delete
+
+9. 使用 MapGroup (詳見檔案Program_GroupMap.cs。)
+    測了上述的四個，都可以運作
+
+10. 使用 TypedResults API (詳見檔案Program_TypedResults.cs。)
+    將方法和路由分開，而不使用 Lambda 兩者黏起來
+
+EX : launch.json 之中加入 "requireExactSource": false,  來允許中斷點！

@@ -1,0 +1,30 @@
+來源︰
+https://learn.microsoft.com/zh-tw/aspnet/core/tutorials/min-web-api?view=aspnetcore-7.0&tabs=visual-studio-code
+
+CMD指令︰----
+新增︰dotnet new web -o TodoApi
+前往︰cd TodoApi
+進入︰code -r ../TodoApi
+
+步驟︰
+1. 查看 Program.cs 
+2. dotnet dev-certs https --trust
+3. 按 Ctrl+F5 執行應用程式。 瀏覽器視窗隨即開啟? 
+    不，我要在左手邊的Debug工具按它，它才跑得動?
+    (直接按F5就好…)
+4. 新增套件
+
+CMD指令︰----
+dotnet add package Microsoft.EntityFrameworkCore.InMemory
+dotnet add package Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore
+
+5. 新增物件類別︰Todo
+6. 新增資料庫連接類別︰TodoDb
+7. 修改Program.cs(按模版，詳見檔案。)
+8. 跑起來，用Postman去測︰(看圖)
+    新增Post
+    查看Get
+    修改Put
+    刪除Delete
+
+
