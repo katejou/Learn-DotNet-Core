@@ -9,8 +9,9 @@ var app = builder.Build();
 var todoItems = app.MapGroup("/todoitems");//路由
 
 todoItems.MapGet("/", GetAllTodos);
-todoItems.MapGet("/complete", GetCompleteTodos);
+//todoItems.MapGet("/complete", GetCompleteTodos);
 todoItems.MapGet("/{id}", GetTodo);
+todoItems.MapGet("/Secret/{id}", GetSecret); //<這個自己加的，來作對比。
 todoItems.MapPost("/", CreateTodo);
 todoItems.MapPut("/{id}", UpdateTodo);
 todoItems.MapDelete("/{id}", DeleteTodo);
@@ -20,30 +21,24 @@ app.Run();
 // 這裡的重點是 DTO, DTO 和 Todo這個完全和資料庫Table一樣的物件分離。
 // 回傳DTO，則可以操作，使客戶只得到一部份處理過的內容，而不是完全公開的資料。
 
-static async Task<IResult> GetAllTodos(TodoDb db) // 方法的名稱有寫得更加的清楚，都不用注解了。
+static async Task<IResult> GetAllTodos(TodoDb db)
 {
-    return TypedResults.Ok(await db.Todos.ToArrayAsync());
-}
-
-// 這一段是 Assert ? 但我不太懂可以放在哪？
-// public async Task GetAllTodos_ReturnsOkOfTodosResult()
-// {
-//     // Arrange
-//     var db = CreateDbContext();
-
-//     // Act
-//     var result = await TodosApi.GetAllTodos(db);
-
-//     // Assert: Check for the correct returned type
-//     Assert.IsType<Ok<Todo[]>>(result);
-// }
-
-static async Task<IResult> GetCompleteTodos(TodoDb db)
-{
-    return TypedResults.Ok(await db.Todos.Where(t => t.IsComplete).ToListAsync());
+    return TypedResults.Ok(await db.Todos.Select(x => new TodoItemDTO(x)).ToArrayAsync());
+    // 取回全部，然後逐個輸入為新的TodoItemDTO
+    // 新的 TodoItemDTO 不收 Secret ，並且被 ToArrayAsync() 不同步地結成串列。
+    // 回傳給使用者時，就沒有了所有的 Secret 
 }
 
 static async Task<IResult> GetTodo(int id, TodoDb db)
+{
+    return await db.Todos.FindAsync(id)
+        is Todo todo
+            ? TypedResults.Ok(new TodoItemDTO(todo)) //同理，會不收Secret 
+            : TypedResults.NotFound();
+}
+
+// 自己加，來作對比(上方是有DTO，這裡是沒有)
+static async Task<IResult> GetSecret(int id, TodoDb db)
 {
     return await db.Todos.FindAsync(id)
         is Todo todo
@@ -51,28 +46,38 @@ static async Task<IResult> GetTodo(int id, TodoDb db)
             : TypedResults.NotFound();
 }
 
-static async Task<IResult> CreateTodo(Todo todo, TodoDb db)
+//新增
+static async Task<IResult> CreateTodo(TodoItemDTO todoItemDTO, TodoDb db) //收入 DTO
 {
-    db.Todos.Add(todo);
+    var todoItem = new Todo // init 出一個 Todo，傳入來自外部 DTO 的值。
+    {
+        IsComplete = todoItemDTO.IsComplete,
+        Name = todoItemDTO.Name,
+        Secret = "Not telling you" //我自己設的
+    };
+
+    db.Todos.Add(todoItem); // 入資料庫
     await db.SaveChangesAsync();
 
-    return TypedResults.Created($"/todoitems/{todo.Id}", todo);
+    return TypedResults.Created($"/todoitems/{todoItem.Id}", todoItemDTO);
 }
 
-static async Task<IResult> UpdateTodo(int id, Todo inputTodo, TodoDb db)
+//修改
+static async Task<IResult> UpdateTodo(int id, TodoItemDTO todoItemDTO, TodoDb db)
 {
-    var todo = await db.Todos.FindAsync(id);
+    var todo = await db.Todos.FindAsync(id);//找出來
 
     if (todo is null) return TypedResults.NotFound();
 
-    todo.Name = inputTodo.Name;
-    todo.IsComplete = inputTodo.IsComplete;
+    todo.Name = todoItemDTO.Name;//修改
+    todo.IsComplete = todoItemDTO.IsComplete;
 
     await db.SaveChangesAsync();
 
     return TypedResults.NoContent();
 }
 
+//刪除是沒差…
 static async Task<IResult> DeleteTodo(int id, TodoDb db)
 {
     if (await db.Todos.FindAsync(id) is Todo todo)
@@ -84,3 +89,5 @@ static async Task<IResult> DeleteTodo(int id, TodoDb db)
 
     return TypedResults.NotFound();
 }
+
+//為什麼有條件的那個不見了？我等一下自己寫看看…
