@@ -9,7 +9,7 @@ var app = builder.Build();
 var todoItems = app.MapGroup("/todoitems");//路由
 
 todoItems.MapGet("/", GetAllTodos);
-//todoItems.MapGet("/complete", GetCompleteTodos);
+todoItems.MapGet("/complete/{tf}", GetCompleteTodos); //<這個自己加的，和 DTO 沒什麼關系
 todoItems.MapGet("/{id}", GetTodo);
 todoItems.MapGet("/Secret/{id}", GetSecret); //<這個自己加的，來作對比。
 todoItems.MapPost("/", CreateTodo);
@@ -91,3 +91,10 @@ static async Task<IResult> DeleteTodo(int id, TodoDb db)
 }
 
 //為什麼有條件的那個不見了？我等一下自己寫看看…
+static async Task<IResult> GetCompleteTodos(string tf, TodoDb db)
+{
+    if(tf == "t")
+        return TypedResults.Ok(await db.Todos.Where(t => t.IsComplete == true).ToListAsync());
+    else 
+        return TypedResults.Ok(await db.Todos.Where(t => t.IsComplete == false).ToListAsync());
+}
