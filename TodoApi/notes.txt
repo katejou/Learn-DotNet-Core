@@ -39,7 +39,7 @@ dotnet add package Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore
 EX : launch.json 之中加入 "requireExactSource": false,  來允許中斷點！
 EX : 中間有一小段Assert的東東，但我不知道它能怎麼用…(只是有提一下下)
 
-11. 使用 DTO 將回傳的物件，和 DB的Table格式 分開。(詳見檔案Program_DTO.cs。)
+11. 使用 DTO 將回傳的物件，和 DB的Table格式 分開。(詳見檔案Program.cs。)
     Todo.cs 多了一個屬性︰public string? Secret { get; set; }
     目標是避免回傳這個欄位的資料，給使用者。
     新增一個 TodoItemDTO 來作 資料庫和使用者 之間的中介 (像只小貨車)
