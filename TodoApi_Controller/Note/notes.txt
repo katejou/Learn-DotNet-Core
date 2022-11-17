@@ -66,5 +66,7 @@ WeatherForecast的那個也在！
 // 所以Swagger是自動感應這個WebApi的專案之中，可以有什麼Controller，就產生什麼的方法來測試！
 // 十分方便開發的工具。
 
+Schema之中，是所有程式用到過的Object(沒有方法，只有屬性，像是DTO這樣的東東…)
+
 
 
