@@ -1,6 +1,8 @@
 來源︰
 https://learn.microsoft.com/zh-tw/aspnet/core/tutorials/first-web-api?view=aspnetcore-7.0&tabs=visual-studio-code
 
+-----------新增專案-----------
+
 CMD指令︰----
 (對比上一個練習︰dotnet new web -o TodoApi)
 這一個練習(有Controller)︰dotnet new webapi -o TodoApi_Controller
@@ -9,10 +11,60 @@ CMD指令︰----
 進入︰code -r ../TodoApi
 開權限︰dotnet dev-certs https --trust
 
-檔案生成時，WeatherForecast 是自帶的。Swagger也是。
-我還是先用PostMan先測一下，功能是不是都OK…
+-----------試跑-----------
 
-在(Code)環境的左手邊，先在三角形，按個build一下，才可以按Run。
+檔案生成時，WeatherForecast 是自帶的。Swagger也是。(詳看Program.cs)
+我還是先用PostMan先測一下，功能都OK
+
+在(Code)環境的左手邊，先在三角形，按個build一下(建立launch.json等)，才可以按Run。
 不然按F5/Crtl+F5，都是叫我選一個設定檔的方式，然後不了了之，根本沒有跑起來。
+
+-----------修改開始-----------
+
+加一個Model的資料夾，新增 Todo Context 和 Item …
+修改Program.cs
+使用Scaffold生成Controller
+
+(請確定到目前為止所有變更都已儲存。) //我覺得 Scaffold 就是 用模版來自動(擴充原有)生成的意思。
+
+1. 先加入一堆 package
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design -v 7.0.0-*
+dotnet add package Microsoft.EntityFrameworkCore.Design -v 7.0.0-*
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer -v 7.0.0-*
+dotnet tool uninstall -g dotnet-aspnet-codegenerator //<--這個可能會錯，因為從來沒有安裝過。但沒有關系。
+dotnet tool install -g dotnet-aspnet-codegenerator//反正這兩句話，只是為了安裝最新版。
+
+//tool 和 package 是不同的，感覺package是依附在專案上的補充包
+//tool，是安裝在電腦上的工具，用來操作補充包裡的東東？
+//以上是個人理解…
+
+2. 這是開始做 Scaffold 了︰
+dotnet-aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext -outDir Controllers
+效果︰多了TodoItemsController.cs
+
+3. 小修Controller，使用nameof於接收「新增Post」的功能。
+
+-----------使用Swagger，測試產生出來的Controller-----------
+Ctrl+F5 去跑，能跑起來。
+
+初始是這樣的︰http://localhost:5090/
+會無法顯示(prot是隨機的，不一定一樣)
+
+在url後面加︰
+http://localhost:5090/swagger/index.html
+就會有畫面
+
+(swagger可以取代postman的意思？)
+
+展開 POST api/TodoItems > 看範例，點「Try it out」> 輸入想新增的內容，Execute > 收到201就成功了！
+
+接著測 Get (用id的，和不用id的) > OK
+測Put(修改) > OK //我在swagger畫面上，看到︰「 server: Kestrel 」唔…記住這個名字好了，有點眼熟。
+Delete 也沒問題…
+
+WeatherForecast的那個也在！ 
+// 所以Swagger是自動感應這個WebApi的專案之中，可以有什麼Controller，就產生什麼的方法來測試！
+// 十分方便開發的工具。
+
 
 
