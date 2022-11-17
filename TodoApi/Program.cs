@@ -90,7 +90,7 @@ static async Task<IResult> DeleteTodo(int id, TodoDb db)
     return TypedResults.NotFound();
 }
 
-//為什麼有條件的那個不見了？我等一下自己寫看看…
+//這個我自己寫的︰
 static async Task<IResult> GetCompleteTodos(string tf, TodoDb db)
 {
     if(tf == "t")

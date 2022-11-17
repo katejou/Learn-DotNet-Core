@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\User\\source\\repos\\Learning\\Core\\TodoApi\\TodoApi.csproj",
+  "FilePath": "c:\\Users\\User\\source\\repos\\Learning\\Core\\TodoApi_Controller\\TodoApi_Controller.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -16552,7 +16552,7 @@
     ],
     "CSharpLanguageVersion": 1100
   },
-  "RootNamespace": "TodoApi",
+  "RootNamespace": "TodoApi_Controller",
   "Documents": [],
   "SerializationFormat": "0.2"
 }

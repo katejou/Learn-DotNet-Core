@@ -1,0 +1,18 @@
+來源︰
+https://learn.microsoft.com/zh-tw/aspnet/core/tutorials/first-web-api?view=aspnetcore-7.0&tabs=visual-studio-code
+
+CMD指令︰----
+(對比上一個練習︰dotnet new web -o TodoApi)
+這一個練習(有Controller)︰dotnet new webapi -o TodoApi_Controller
+前往︰cd .\TodoApi_Controller\
+套件︰dotnet add package Microsoft.EntityFrameworkCore.InMemory
+進入︰code -r ../TodoApi
+開權限︰dotnet dev-certs https --trust
+
+檔案生成時，WeatherForecast 是自帶的。Swagger也是。
+我還是先用PostMan先測一下，功能是不是都OK…
+
+在(Code)環境的左手邊，先在三角形，按個build一下，才可以按Run。
+不然按F5/Crtl+F5，都是叫我選一個設定檔的方式，然後不了了之，根本沒有跑起來。
+
+
