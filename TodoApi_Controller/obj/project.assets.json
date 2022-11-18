@@ -10909,11 +10909,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\source\\repos\\Learning\\Core\\TodoApi_Controller\\TodoApi_Controller.csproj",
+      "projectUniqueName": "c:\\Users\\User\\source\\repos\\Learning\\Core\\TodoApi_Controller\\TodoApi_Controller.csproj",
       "projectName": "TodoApi_Controller",
-      "projectPath": "C:\\Users\\User\\source\\repos\\Learning\\Core\\TodoApi_Controller\\TodoApi_Controller.csproj",
+      "projectPath": "c:\\Users\\User\\source\\repos\\Learning\\Core\\TodoApi_Controller\\TodoApi_Controller.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\source\\repos\\Learning\\Core\\TodoApi_Controller\\obj\\",
+      "outputPath": "c:\\Users\\User\\source\\repos\\Learning\\Core\\TodoApi_Controller\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
