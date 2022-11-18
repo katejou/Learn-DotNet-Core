@@ -68,9 +68,44 @@ WeatherForecast的那個也在！
 
 Schema之中，是所有程式用到過的Object(沒有方法，只有屬性，像是DTO這樣的東東…)
 
+原文︰
+HTTP-repl、 Postman和 curl 通常用於測試 API 的 。 
+Swagger 會使用 curl 並顯示 curl 它提交的命令。
 
------------改路由，不用Controller的名字-----------
+HTTP-repl是？︰
+https://learn.microsoft.com/zh-tw/aspnet/core/web-api/http-repl/?view=aspnetcore-7.0&tabs=windows
+有空可以玩…
+
+curl是？:
+https://terminalcheatsheet.com/guides/curl-rest-api
+Start by opening your terminal.
+curl is a “command-line tool for transferring data specified with URL syntax”, which makes it very useful for interacting with REST APIs and other web resources.
+所以說…我用terminal也可以操作？試看看
+這是從Swagger的畫面上抄下來的…一直有指令上的error，我去官網看看，指令要怎下︰
+這個Get得到︰curl http://localhost:5090/api/TodoItems
+這也Get得到︰curl http://localhost:5090/api/TodoItems/1
+-o option to save the output as a file instead of showing it directly in the terminal window. 
+-v  more detailed information about this interaction over the network
+Post呢？…不太成功，算了，反正有 postman 和Swagger ，我又沒有想做駭客…
+
+-----------改路由-----------
+
+--- ontroller 要自己命名路由的話︰
+ [Route("api/ABC")]
+[ApiController]
+public class TodoItemsController : ControllerBase { ... }
+
+--- controller 「的方法」要自己命名路由的話︰
+[HttpGet()] <這個標簽的話，就會用 GET: api/TodoItems
+[HttpGet("ALL")] <這個標簽的話，就會用GET: api/TodoItems/ALL
+public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems(){ ... }
+
+以上，Swagger 也會自動感應到這個改變
 
 -----------使用DTO-----------
 
+加 public string? Secret { get; set; } 入 TodoItem.cs
+加檔案︰TodoItemDTO.cs
+程式修改見Program.cs  
 
+修改後我都測過了，沒有問題。

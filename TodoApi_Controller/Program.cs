@@ -28,6 +28,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers(); // <-- 
+app.MapControllers(); // <-- 詳情可見︰
+//https://learn.microsoft.com/zh-tw/aspnet/core/mvc/controllers/routing?view=aspnetcore-7.0#attribute-routing-for-rest-apis
 
 app.Run();
