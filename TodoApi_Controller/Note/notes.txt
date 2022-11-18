@@ -114,3 +114,9 @@ public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems(){ ... }
 在 vs code 環境，新增一個 gitignore 的預設檔案指令︰
 
 dotnet new gitignore
+
+預設檔要加入，要不然會太大︰
+
+bin/*
+obj/*
+.vscode/*
