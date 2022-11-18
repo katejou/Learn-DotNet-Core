@@ -13,8 +13,10 @@ CMD指令︰----
 1. 查看 Program.cs (Program_ori.cs)
 2. dotnet dev-certs https --trust
 3. 按 Ctrl+F5 執行應用程式。 瀏覽器視窗隨即開啟? 
-    不，我要在左手邊的Debug工具按它，它才跑得動?
-    (直接按F5就好…)
+    不，我要在左手邊的Debug(三角形)去Build一下，之後它才跑得動？
+    (按 F5 / Ctrl+F5 都可以 
+    F5 是可以 下中斷點Debug 
+    但 Ctrl+F5 不可以，中斷點會直接跳過)
 4. 新增套件
 
 CMD指令︰----

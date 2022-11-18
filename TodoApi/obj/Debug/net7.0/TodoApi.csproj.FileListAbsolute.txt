@@ -5,6 +5,11 @@ C:\Users\User\source\repos\Learning\Core\TodoApi\bin\Debug\net7.0\TodoApi.deps.j
 C:\Users\User\source\repos\Learning\Core\TodoApi\bin\Debug\net7.0\TodoApi.runtimeconfig.json
 C:\Users\User\source\repos\Learning\Core\TodoApi\bin\Debug\net7.0\TodoApi.dll
 C:\Users\User\source\repos\Learning\Core\TodoApi\bin\Debug\net7.0\TodoApi.pdb
+C:\Users\User\source\repos\Learning\Core\TodoApi\bin\Debug\net7.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+C:\Users\User\source\repos\Learning\Core\TodoApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\User\source\repos\Learning\Core\TodoApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\User\source\repos\Learning\Core\TodoApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\User\source\repos\Learning\Core\TodoApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\User\source\repos\Learning\Core\TodoApi\obj\Debug\net7.0\TodoApi.csproj.AssemblyReference.cache
 C:\Users\User\source\repos\Learning\Core\TodoApi\obj\Debug\net7.0\TodoApi.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\User\source\repos\Learning\Core\TodoApi\obj\Debug\net7.0\TodoApi.AssemblyInfoInputs.cache
@@ -19,14 +24,9 @@ C:\Users\User\source\repos\Learning\Core\TodoApi\obj\Debug\net7.0\staticwebasset
 C:\Users\User\source\repos\Learning\Core\TodoApi\obj\Debug\net7.0\staticwebassets.build.json
 C:\Users\User\source\repos\Learning\Core\TodoApi\obj\Debug\net7.0\staticwebassets.development.json
 C:\Users\User\source\repos\Learning\Core\TodoApi\obj\Debug\net7.0\scopedcss\bundle\TodoApi.styles.css
+C:\Users\User\source\repos\Learning\Core\TodoApi\obj\Debug\net7.0\TodoApi.csproj.CopyComplete
 C:\Users\User\source\repos\Learning\Core\TodoApi\obj\Debug\net7.0\TodoApi.dll
 C:\Users\User\source\repos\Learning\Core\TodoApi\obj\Debug\net7.0\refint\TodoApi.dll
 C:\Users\User\source\repos\Learning\Core\TodoApi\obj\Debug\net7.0\TodoApi.pdb
 C:\Users\User\source\repos\Learning\Core\TodoApi\obj\Debug\net7.0\TodoApi.genruntimeconfig.cache
 C:\Users\User\source\repos\Learning\Core\TodoApi\obj\Debug\net7.0\ref\TodoApi.dll
-C:\Users\User\source\repos\Learning\Core\TodoApi\bin\Debug\net7.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
-C:\Users\User\source\repos\Learning\Core\TodoApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\User\source\repos\Learning\Core\TodoApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\User\source\repos\Learning\Core\TodoApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.InMemory.dll
-C:\Users\User\source\repos\Learning\Core\TodoApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\User\source\repos\Learning\Core\TodoApi\obj\Debug\net7.0\TodoApi.csproj.CopyComplete
