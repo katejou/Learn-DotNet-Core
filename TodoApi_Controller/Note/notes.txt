@@ -74,19 +74,13 @@ Swagger 會使用 curl 並顯示 curl 它提交的命令。
 
 HTTP-repl是？︰
 https://learn.microsoft.com/zh-tw/aspnet/core/web-api/http-repl/?view=aspnetcore-7.0&tabs=windows
-有空可以玩…
+在隔壁的筆記，純用 cmd 來測 Web API 
 
 curl是？:
 https://terminalcheatsheet.com/guides/curl-rest-api
-Start by opening your terminal.
-curl is a “command-line tool for transferring data specified with URL syntax”, which makes it very useful for interacting with REST APIs and other web resources.
-所以說…我用terminal也可以操作？試看看
-這是從Swagger的畫面上抄下來的…一直有指令上的error，我去官網看看，指令要怎下︰
-這個Get得到︰curl http://localhost:5090/api/TodoItems
-這也Get得到︰curl http://localhost:5090/api/TodoItems/1
--o option to save the output as a file instead of showing it directly in the terminal window. 
--v  more detailed information about this interaction over the network
-Post呢？…不太成功，算了，反正有 postman 和Swagger ，我又沒有想做駭客…
+這是從Swagger的畫面上抄下來的…一直有指令上的error，我去官網看看，指令要怎下…
+但結果也不成功，還不如用上面那個更方便。
+
 
 -----------改路由-----------
 

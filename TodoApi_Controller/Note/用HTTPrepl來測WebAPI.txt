@@ -1,0 +1,53 @@
+下載︰
+dotnet tool install -g Microsoft.dotnet-httprepl
+
+進入環境︰
+httprepl http://localhost:5090/
+
+檢查指令︰
+help
+
+設定header︰
+set header content-type application/json
+
+啟動連接︰
+connect http://localhost:5090/
+(這個測試不成功？它感應不到scheme「http://」
+所以要一進入環境時，就指定好)
+
+開出swagger的網頁︰
+ui
+
+列出所有的控制器︰
+ls
+(成功,(但第一次不成功，原因不明，要關了再開。))
+
+Use `help <COMMAND>` for more detail on an individual command. 
+e.g. `help get`
+
+測 GET
+get /api/ABC/ALL
+get WeatherForecast
+
+測 POST
+post api/ABC -c {"id":1,"name":"katejou","isComplete":false}
+get api/ABC/1
+
+測 PUT
+put api/ABC/1 -c {"id":1,"name":"katejou_2","isComplete":true}
+get api/ABC/1
+
+測 DELETE
+delete api/ABC/1
+get /api/ABC/ALL
+get api/ABC/1
+
+
+以上成功！以後連 Postman 和 Swagger 都可以省了！
+
+
+
+
+
+
+
