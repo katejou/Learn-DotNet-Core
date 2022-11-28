@@ -1,0 +1,51 @@
+[ApiController]
+[Route("[controller]")]
+public class WeatherForecastController : ControllerBase
+
+- ControllerBase :
+The first thing to notice is that this class inherits from the ControllerBase base class. 
+This base class provides a lot of standard functionality for handling HTTP requests, 
+so you can focus on the specific business logic for your application.
+
+- [ApiController] :
+enables opinionated behaviors that make it easier to build web APIs. 
+Some behaviors include parameter source inference, attribute routing as a requirement, 
+and model validation error-handling enhancements.
+
+- [Route] : 
+defines the routing pattern [controller]. 
+The [controller] token is replaced by the controller's name (case-insensitive, without the Controller suffix).
+
+    [HttpGet(Name = "GetWeatherForecast")] <--
+    public IEnumerable<WeatherForecast> Get()
+<--
+This attribute routes HTTP GET requests to the public IEnumerable<WeatherForecast> Get() method.
+
+    [HttpGet("{id}")]
+
+You can implement another GET action that requires an id parameter.
+The routing logic registers [HttpGet] (without id) and [HttpGet("{id}")] (with id) as two different routes.
+You can then write a separate action to retrieve a single item.
+
+    [HttpPost]
+    public IActionResult Create(Pizza pizza)
+
+IActionResult :
+lets the client know if the request succeeded and provides the ID of the newly created pizza. 
+IActionResult does this by using standard HTTP status codes
+CreatedAtAction 201	The pizza was added to the in-memory cache.
+BadRequest      400	The request body's pizza object is invalid.
+
+    [HttpPut("{id}")]
+    public IActionResult Update(int id, Pizza pizza)
+
+NoContent   204	The pizza was updated in the in-memory cache.
+BadRequest	400	The request body's Id value doesn't match the route's id value.
+BadRequest  400	The request body's Pizza object is invalid.
+
+    [HttpDelete("{id}")]
+    public IActionResult Delete(int id)
+    
+NoContent	204	The pizza was deleted from the in-memory cache.
+NotFound	404	A pizza that matches the provided id parameter doesn't exist in the in-memory cache.
+

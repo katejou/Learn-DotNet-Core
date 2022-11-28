@@ -25,3 +25,56 @@ cd WeatherForecast
 get
 離開︰
 exit
+
+--- 開始製作Pizza !
+mkdir Models + 新增 Pizza.cs
+mkdir Services + 新增 PizzaService.cs
+build 一下，可以確定程式沒有出錯︰
+dotnet build
+建置成功。
+    0 個警告
+    0 個錯誤
+新增一個PizzaController.cs + 加一些基本的 Get Method 
+跑起來看看︰
+dotnet run  --------------- > (Ctrl + C)
+---
+httprepl https://localhost:7270
+ls
+cd Pizza
+get
+get 1 (200)
+get 5 (404)
+exit
+---------------
+
+新增 POST, PUT, 和 DELETE 到 controller
+跑起來看看︰
+dotnet run  --------------- > (Ctrl + C)
+---
+httprepl https://localhost:7270
+ls  <--這個 ls 只看到︰ Pizza    [GET|POST]
+cd Pizza
+ls  <--這個 ls 才是真的 : 
+
+.      [GET|POST]
+..     []
+{id}   [GET|PUT|DELETE]
+
+新增︰
+post -c "{"name":"Hawaii", "isGlutenFree":false}"
+修改︰
+put 3 -c  "{"id": 3, "name":"Hawaiian", "isGlutenFree":false}"
+查看︰
+get 3
+get
+刪除︰
+delete 3
+查看︰
+get 3
+get
+
+
+
+
+
+
