@@ -45,7 +45,8 @@ get api/ABC/1
 
 以上成功！以後連 Postman 和 Swagger 都可以省了！
 
-
+離開環境︰
+exit
 
 
 

@@ -1,0 +1,27 @@
+檢查工具版本︰
+dotnet --list-sdks
+開新資料夾︰
+mkdir ContosoPizza 
+cd .\ContosoPizza\
+用6.0的版本來開一個專案(雖然我已經有7.0?)，
+*在這個資料夾中開出來的，專案名稱自然就會續承。
+dotnet new webapi -f net6.0
+(而且也會有WeatherForecast的這個範例。)
+建置和測試︰(終於不用再按Ctrl+F5了)
+dotnet run
+去看info，找到 port，測以下，有回傳成功︰
+https://localhost:7270/weatherforecast
+中止︰
+CTRL+C
+測 httprepl :
+開啟︰
+httprepl https://localhost:7270
+(或︰httprepl 後︰connect https://localhost:7270)
+列出可用的路徑:
+ls
+前往︰
+cd WeatherForecast
+取資料︰
+get
+離開︰
+exit
